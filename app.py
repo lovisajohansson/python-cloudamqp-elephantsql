@@ -27,7 +27,7 @@ def store(ch, method, properties, body):
   print(body["time"])
   try:
     up.uses_netloc.append("postgres")
-    url = up.urlparse(os.environ["ELEPHANTSQL_URL"])
+    url = up.urlparse(os.environ["DATABASE_URL"])
     connection = psycopg2.connect(database=url.path[1:],
       user=url.username,
       password=url.password,
